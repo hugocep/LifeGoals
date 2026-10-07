@@ -16,7 +16,7 @@
         required
         [readonly]="guardando"
         [(ngModel)]="nuevaMeta.meta">
-      <button type="submit" [disabled]="guardando || !nuevaMeta.meta.trim()">
+      <button type="submit" [disabled]="guardando">
         {{ guardando ? 'Guardando...' : 'Agregar meta' }}
       </button>
       <p class="error" *ngIf="error">{{ error }}</p>
