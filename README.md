@@ -57,7 +57,7 @@ El contenedor escucha en la variable `PORT` (80 por defecto), compatible con Ren
 El workflow [`.github/workflows/docker-image.yml`](.github/workflows/docker-image.yml) se ejecuta con cada push a `master`:
 
 1. Construye la imagen Docker del proyecto.
-2. La publica en Docker Hub como `hugocep/lifegoals:latest`.
+2. La publica en Docker Hub como `darksider8888/lifegoals:latest`.
 3. (Opcional) Dispara el redespliegue en Render.
 
 Secrets requeridos en el repositorio: `DOCKERHUB_USERNAME`, `DOCKERHUB_TOKEN` y, opcionalmente, `RENDER_DEPLOY_HOOK_URL`.
