@@ -4,6 +4,14 @@ Aplicación web en **Angular 18** y **Cloud Firestore** para administrar tus met
 
 Autor: **Hugo Ernesto Cervantes Ponce** · [github.com/hugocep](https://github.com/hugocep)
 
+## Enlaces
+
+| Entregable | URL |
+|---|---|
+| Repositorio en GitHub | https://github.com/hugocep/LifeGoals |
+| Imagen en Docker Hub | https://hub.docker.com/r/darksider8888/lifegoals |
+| Producción en Render | https://lifegoals-devp.onrender.com |
+
 ## Tecnologías
 
 - Node.js 20.x y Angular 18.x (módulos, `--no-standalone`)
