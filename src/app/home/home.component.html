@@ -1,0 +1,51 @@
+<section class="board">
+  <article class="panel">
+    <header class="panel-header">
+      <h2>Agrega una meta de vida</h2>
+    </header>
+
+    <form class="panel-body" (ngSubmit)="agregarMeta()">
+      <label for="meta">Usa este formulario para agregar una nueva meta</label>
+      <input
+        id="meta"
+        name="meta"
+        type="text"
+        placeholder="Ej. Correr un maratón"
+        maxlength="200"
+        autocomplete="off"
+        required
+        [readonly]="guardando"
+        [(ngModel)]="nuevaMeta.meta">
+      <button type="submit" [disabled]="guardando || !nuevaMeta.meta.trim()">
+        {{ guardando ? 'Guardando...' : 'Agregar meta' }}
+      </button>
+      <p class="error" *ngIf="error">{{ error }}</p>
+    </form>
+  </article>
+
+  <article class="panel" *ngIf="metas$ | async as metas; else cargando">
+    <header class="panel-header">
+      <h2>Mis metas ( {{ metas.length }} )</h2>
+    </header>
+
+    <ul class="panel-body goal-list" *ngIf="metas.length; else sinMetas">
+      <li class="goal" *ngFor="let meta of metas">
+        <span>{{ meta.meta }}</span>
+        <button type="button" class="btn-delete" (click)="eliminarMeta(meta)">Eliminar</button>
+      </li>
+    </ul>
+  </article>
+</section>
+
+<ng-template #cargando>
+  <article class="panel">
+    <header class="panel-header">
+      <h2>Mis metas</h2>
+    </header>
+    <p class="panel-body">Cargando metas...</p>
+  </article>
+</ng-template>
+
+<ng-template #sinMetas>
+  <p class="panel-body">Aún no tienes metas registradas. ¡Agrega la primera!</p>
+</ng-template>

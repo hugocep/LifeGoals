@@ -1,0 +1,12 @@
+<section class="contact">
+  <h1>{{ contacto.nombre }}</h1>
+  <p>Desarrollador de LifeGoals, una aplicación para administrar tus metas en la vida.</p>
+
+  <dl>
+    <dt>E-mail</dt>
+    <dd><a [href]="'mailto:' + contacto.email">{{ contacto.email }}</a></dd>
+
+    <dt>GitHub</dt>
+    <dd><a [href]="contacto.github" target="_blank" rel="noopener">{{ contacto.github }}</a></dd>
+  </dl>
+</section>

@@ -1,0 +1,21 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Colección de metas: lectura, alta y eliminación públicas.
+    // Cada documento solo puede contener el campo `meta` (texto de 1 a 200 caracteres).
+    match /metas/{metaId} {
+      allow read, delete: if true;
+      allow create: if request.resource.data.keys().hasOnly(['meta'])
+                    && request.resource.data.meta is string
+                    && request.resource.data.meta.size() > 0
+                    && request.resource.data.meta.size() <= 200;
+    }
+
+    // Cualquier otra colección queda bloqueada.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
